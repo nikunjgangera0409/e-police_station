@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Details</title>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Login Details</h1>
+            <hr>
+            <form action="{% url 'commissioner_login_details' %}" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        </center>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends 'inspector/inspector_index.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    
+    <table class="table table-bordered table-hover">
+        <h1>Complaint's users details</h1>
+        <hr>
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>Mobile No.</th>
+                <th>Phone No.</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in complain_details %}
+                {% for j in c_usr%}
+                    {% if i.username == j.user %}
+                        <tr>
+                            <td>{{i.username.first_name}} {{i.username.last_name}}</td>
+                                <td>{{j.mobile_no}}</td>
+                                <td>{{j.phone_no}}</td>
+                            <td>{{i.username.email}}</td>
+                            <td>{{j.address}}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <table class="table table-bordered table-hover">
+        <h1>FIR's users details</h1>
+        <hr>
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>Mobile No.</th>
+                <th>Phone No.</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in fir_details %}
+                {% for j in c_usr%}
+                    {% if i.username == j.user %}
+                        <tr>
+                            <td>{{i.username.first_name}} {{i.username.last_name}}</td>
+                                <td>{{j.mobile_no}}</td>
+                                <td>{{j.phone_no}}</td>
+                            <td>{{i.username.email}}</td>
+                            <td>{{j.address}}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

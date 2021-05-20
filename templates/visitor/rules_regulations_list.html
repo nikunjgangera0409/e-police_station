@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h1>Rules and Regulations</h1>
+            <hr>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Document</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in object_list %}
+                    <tr>
+                        <td>{{object.Title}}</td>
+                        <td><a href="{{object.Document.url}}">Download PDF</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </center>
+    </div>
+
+{% endblock %}

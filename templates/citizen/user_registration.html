@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration for Citizen</title>
+    <link rel="stylesheet" href="{% static 'css/registration.css'%}">
+</head>""
+<body>
+
+    <form action="{% url 'registration' %}" method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Registration Form for Citizen</h1>
+            <p>Please fill your details for the registration.</p>
+            <hr>
+
+            <label for="username">User_Name:</label>
+            <input type="text" name="username" placeholder="Enter your user_name" size="15" required/>
+        
+            <label for="first_name">First_Name:</label>
+            <input type="text" name="first_name" placeholder="Enter your First_name" size="15" required/>
+            
+            <label for="last_name">Last_Name:</label>
+            <input type="text" name="last_name" placeholder="Enter your Last_name" size="15" required/>
+            
+            <label for="email">Email:</label>
+            <input type="text" name="email" placeholder="Enter your E-mail" size="15" required/>
+            
+           
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter the password" size="15" required/>
+
+            <label for="c_password ">Confirm_password :</label>
+            <input type="password" name="Confirm_password " placeholder="Confirm the password" size="15" required/>
+
+        
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+
+        <div class="container signin">
+            <p>Already have an account? <a href="#">Sign in</a>.</p>
+          </div>
+
+    </form>
+    
+</body>
+</html>

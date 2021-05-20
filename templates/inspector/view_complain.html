@@ -1,0 +1,44 @@
+{% extends 'inspector/inspector_index.html' %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <h1>Complaint Details</h1>
+        <hr>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Police Station</th>
+                <th>Incident Place</th>
+                <th>Date and Time</th>
+                <th>Crime Description</th>
+                <th>Complain Againts</th>
+                <th>Proof</th>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>FIR Date and Time</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for object in view_complain %}
+            
+            <tr>
+                <td>{{object.username.first_name}} {{object.username.last_name}}</td>
+                <td>{{object.police_station}}</td>
+                <td>{{object.incident_place}}</td>
+                <td>{{object.Date_and_Time}}</td>
+                <td>{{object.Crime_Description}}</td>
+                <td>{{object.complain_againts}}</td>
+                <td><a href="{{object.proof.url}}">{{object.proof}}</a></td>
+                <td>{{object.status}}</td>
+                <td>{{object.Reason}}</td>
+                <td>{{object.complain_Date_and_Time}}</td>
+            </tr>
+            
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

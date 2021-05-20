@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD Village</title>
+</head>
+<body>
+    <center>
+        <form action="{% url 'village' %}" method="post" id="villageform" taluka-url="{% url 'load_taluka' %}">
+            {% csrf_token %}
+            <h1>Add Village</h1>
+            <table>
+                {{form.as_table}}
+            </table>
+            
+            <button type="submit" class="btn btn-success">Add</button> 
+        </form>
+    </center>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $("#id_city").change(function () {
+            const url = $("#villageform").attr("taluka-url"); 
+            const city_id = $(this).val();  
+
+            $.ajax({                       
+                url: url,                    
+                data: {
+                    'city_id': city_id      
+                },
+                success: function (data) {   
+                    $("#id_taluka").html(data);  
+                    
+                }
+            });
+
+        });
+
+        
+    </script>
+</body>
+</html>

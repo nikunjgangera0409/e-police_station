@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary"> Emergency Information</h1>
+            <hr>
+            <table class="table table-bordered table-hover">
+                <tbody>
+                    {% for object in object_list %}
+                    <tr>
+                        <td>{{object.Name}}</td>
+                        <td>{{object.Number}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </center>
+    </div>
+
+{% endblock %}

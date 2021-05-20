@@ -1,0 +1,56 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %} 
+
+    <div class="container-fluid">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Manage Constable</h1>
+            <hr>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Profile_pic</th>
+                        <th>Date_of_birth</th>
+                        <th>Mobile_no</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Pincode</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in constable %}
+                    <tr>
+                        <td>{{i.first_name}} {{i.last_name}}</td>
+                        <td>{{i.email}}</td>
+                        <td><a href="{{i.profile_pic.url}}">{{i.profile_pic}}</a></td>
+                        <td>{{i.date_of_birth}}</td>
+                        <td>{{i.mobile_no}}</td>
+                        <td>{{i.gender}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.city}}</td>
+                        <td>{{i.state}}</td>
+                        <td>{{i.pincode}}</td>
+                        <td><form action="{% url 'update_constable' i.id %}">
+                                <input type="submit" value="UPDATE" class="btn btn-success">
+                            </form>
+                        </td>
+                        <td><form action="{% url 'delete_constable' i.id %}">
+                                <input type="submit" value="DELETE" class="btn btn-success">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>  
+            <hr>
+            <td> <a href="{% url 'constable' %}" class="btn btn-lg btn-info"> ADD Constable </a></td>
+            <td> <a href="{% url 'service_officers' %}" class="btn btn-lg btn-info"> Provide Police station </a></td>
+        </center>
+    </div>
+   
+{% endblock %}

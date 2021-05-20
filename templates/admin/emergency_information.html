@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <form action="{% url 'Emergency_Information' %}" method="POST">
+                {% csrf_token %}
+                <h1 class="btn btn-lg btn-primary">ADD Emergency Information</h1>
+                <hr>
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="submit" value="SAVE" class="btn btn-success">
+            </form>
+        </center>
+    </div>
+
+{% endblock %} 

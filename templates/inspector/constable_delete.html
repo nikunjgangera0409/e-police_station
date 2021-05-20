@@ -1,0 +1,45 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %} 
+
+    <div class="container-fluid">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Delete Constable</h1>
+            <hr>
+            <form method="post">
+                {% csrf_token %}
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Profile_pic</th>
+                            <th>Date_of_birth</th>
+                            <th>Mobile_no</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Pincode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{object.first_name}} {{object.last_name}}</td>
+                            <td>{{object.email}}</td>
+                            <td><a href="{{object.profile_pic.url}}">{{object.profile_pic}}</a></td>
+                            <td>{{object.date_of_birth}}</td>
+                            <td>{{object.mobile_no}}</td>
+                            <td>{{object.gender}}</td>
+                            <td>{{object.address}}</td>
+                            <td>{{object.city}}</td>
+                            <td>{{object.state}}</td>
+                            <td>{{object.pincode}}</td>
+                    </tbody>
+                </table>  
+                <input type="submit" value="Delete" class="btn btn-success">
+            </form>
+        </center>
+    </div>
+   
+{% endblock %}

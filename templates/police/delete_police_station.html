@@ -1,0 +1,36 @@
+% extends 'police/police_station_index.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Delete Police station</h1>
+            <hr>
+            <form  method="POST">
+                {% csrf_token %}
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Police Station</th>
+                            <th>Address</th>
+                            <th>Phone No</th>
+                            <th>Mobile No</th>
+                            <th>E-Mail Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{object.Police_station_name}}</td>
+                            <td>{{object.address}}</td>
+                            <td>{{object.phone_no}}</td>
+                            <td>{{object.mobile_no}}</td>
+                            <td>{{object.email_address}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success"> DELETE </button><br><br>
+            </form>
+        </center>
+    </div>
+
+{% endblock %}

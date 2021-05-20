@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="container">
+        <center><h1>File FIR</h1>
+            <hr>
+            <form action="{% url 'file_fir' %}" method="POST" id="firform" crime-sub-catgory-url="{% url 'load_crime_sub_category' %}"enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{fir.as_table}}
+                </table>
+                <input type="hidden" name="ps_name" value="{{ps}}">
+                <input type="Submit" name="filefir" value="FILE FIR" class="btn btn-success">
+            </form>
+        </center>
+    </div>
+
+{% include 'services/ajax.html' %}
+
+{% endblock %}
+
+    

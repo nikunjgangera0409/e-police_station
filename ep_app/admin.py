@@ -1,0 +1,21 @@
+from django.contrib import admin
+from ep_app import models
+
+admin.site.register(models.Citizenprofile)
+admin.site.register(models.Fir)
+admin.site.register(models.Complain)
+admin.site.register(models.Police_Station)
+admin.site.register(models.Inspector)
+admin.site.register(models.Inspector_login)
+admin.site.register(models.Service_Officers)
+admin.site.register(models.Sub_Inspector)
+admin.site.register(models.Constable)
+admin.site.register(models.Feedback)
+admin.site.register(models.Crime_Category)
+admin.site.register(models.Crime_Sub_Category)
+admin.site.register(models.City)
+admin.site.register(models.Taluka)
+admin.site.register(models.Village)
+admin.site.register(models.Missing_Persons)
+admin.site.register(models.Rules_Regulations)
+admin.site.register(models.Commissioner_login)

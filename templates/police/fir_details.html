@@ -1,0 +1,49 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %} 
+
+
+<div class="container-fluid">
+    <center><h1 class="btn btn-lg btn-primary">FIR's Details</h1>
+    <hr>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>police_station</th>
+                <th>crime_category</th>
+                <th>crime_sub_category</th>
+                <th>incident_place</th>
+                <th>Date_and_Time</th>
+                <th>Crime_Description</th>
+                <th>Fir_againts</th>
+                <th>proof</th>
+                <th>status</th>
+                <th>Reason</th>
+                <th>FIR_Date_and_Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in firs%}
+            <tr>
+                <td>{{i.username}}</td>
+                <td>{{i.police_station}}</td>
+                <td>{{i.crime_category}}</td>
+                <td>{{i.crime_sub_category}}</td>
+                <td>{{i.incident_place}}</td>
+                <td>{{i.Date_and_Time}}</td>
+                <td>{{i.Crime_Description}}</td>
+                <td>{{i.Fir_againts}}</td>
+                <td><a href="{{i.proof.url}}">{{i.proof}}</a></td>
+                <td>{{i.status}}</td>
+                <td>{{i.Reason}}</td>
+                <td>{{i.FIR_Date_and_Time}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </center>
+</div>
+
+
+{% endblock %}

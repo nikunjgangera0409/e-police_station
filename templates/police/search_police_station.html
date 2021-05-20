@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <form action="{% url 'search_police_station' %}" method="POST" id="searchform" taluka-url="{% url 'load_taluka' %}" village-url="{% url 'load_village' %}">
+                {% csrf_token %}
+                <h1 class="btn btn-lg btn-primary">Search Police Station</h1>
+                <hr>
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="submit" value="search" class="btn btn-success">
+            </form>
+            <hr>
+            {% if police_station %}
+                <h1 class="btn btn-lg btn-info">Police station Details</h1>
+                <hr>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Police Station</th>
+                            <th>Address</th>
+                            <th>Phone No</th>
+                            <th>Mobile No</th>
+                            <th>E-Mail Address</th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for police_station in police_station %}
+                        <tr>
+                            <td>{{police_station.Police_station_name}}</td>
+                            <td>{{police_station.address}}</td>
+                            <td>{{police_station.phone_no}}</td>
+                            <td>{{police_station.mobile_no}}</td>
+                            <td>{{police_station.email_address}}</td>
+                            <td>
+                                <form action="{% url 'file_fir' %}">
+                                    <a href="{% url 'file_fir' %}">
+                                        <input type="submit" value="File FIR" class="btn btn-success">
+                                    </a>
+                                    <input type="hidden" name="ps_name"  value="{{police_station.Police_station_name}}">
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'file_complain' %}">
+                                    <a href="{% url 'file_complain' %}">
+                                        <input type="submit" value="File Complain" class="btn btn-success">
+                                    </a>
+                                    <input type="hidden" name="ps_name"  value="{{police_station.Police_station_name}}">
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </center>
+    </div>
+
+{% include 'services/ajax.html' %}
+    
+{% endblock %}

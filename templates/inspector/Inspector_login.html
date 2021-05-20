@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h1>Inspector Login</h1>
+            <hr>
+            <form action="{% url 'inspector_login' %}" method="POST">
+                {% csrf_token %}
+                <Table>
+                    <tr>
+                        <td><label for="cuser">Inspector ID : </label></td>
+                        <td><input type="text" name="username" id="inspectorid" value=""></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cpwd">Password : </label></td>
+                        <td><input type="password" name="userpwd" id="password" value=""></td>
+                    </tr>
+                </Table>
+                <br>
+                <button type="submit" class="btn btn-success">Sign In</button>
+                <hr width="50%">
+                <a href="{% url 'inspector_forgot' %}"><button type="button" class="btn btn-danger">Forgotten Password</button></a>
+            </form>
+        </center>
+    </div>
+
+{% endblock %}

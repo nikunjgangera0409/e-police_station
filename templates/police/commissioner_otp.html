@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+    <div class="container">
+        <center>
+            <form action="{% url 'commissioner_otp' %}" method='POST'>
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><label for="eotp">Enter Your OTP</label></td>
+                        <td><input type="text" id='eotp' name='eotp'></td>
+                        <td><input type="hidden" name="otp" value={{otp}}></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="submit" class="btn btn-success"></td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+
+{% endblock %}

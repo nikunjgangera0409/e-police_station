@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">File Complain</h1>
+            <hr>
+            <form action="{% url 'file_complain' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="hidden" name="ps_name" value="{{ps}}">
+                <input type="Submit" name="filecomplain" value="FILE Complain" class="btn btn-success">
+            </form>
+        </center>
+    </div>
+    
+{% endblock %}

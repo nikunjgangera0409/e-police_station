@@ -1,0 +1,36 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %} 
+
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Delete Inspector</h1>
+            <hr>
+            <form  method="post">
+                {% csrf_token %}
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>First_name</th>
+                            <th>Last_name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{object.username}}</td>
+                            <td>{{object.first_name}}</td>
+                            <td>{{object.last_name}}</td>
+                            <td>{{object.email}}</td>
+                            <td>{{object.password}}</td>
+                        </tr>
+                    </tbody>
+                </table>  
+                <button type="submit" class="btn btn-success"> DELETE </button>
+            </form>
+        </center>
+    </div>
+   
+{% endblock %}

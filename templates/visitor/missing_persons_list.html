@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h1>Missing Persons Details</h1>
+            <hr>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Picture</th>
+                        <th>Full Name</th>
+                        <th>Date of Birth</th>
+                        <th>Age</th>
+                        <th>Nickname</th>
+                        <th>weight</th>
+                        <th>height</th>
+                        <th>Skin_color</th>
+                        <th>Missing_Date</th>
+                        <th>Address</th>
+                        <th>Contact_no</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in object_list %}
+                    <tr>
+                        <td><img src="{{object.Photo.url}}" alt="Image not Found" height="50px" width="50px"></td>
+                        <td>{{object.Full_Name}}</td>
+                        <td>{{object.Date_of_birth}}</td>
+                        <td>{{object.Age}}</td>
+                        <td>{{object.Nickname}}</td>
+                        <td>{{object.weight}}</td>
+                        <td>{{object.height}}</td>
+                        <td>{{object.Skin_color}}</td>
+                        <td>{{object.Missing_Date}}</td>
+                        <td>{{object.Address}}</td>
+                        <td>{{object.Contact_no}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+            <button class="btn btn-danger">If you know any thing about the missing persons please contact on your nearest police station or given contact number.</button>
+        </center>
+    </div>
+
+{% endblock %}

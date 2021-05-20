@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home : E-Police Station</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+</head>
+<body style="background-color: #4d4b4b5d;">
+    <div class="jumbotron" >
+        <div class="container text-center">
+            <h1 style="color: black;">E-Police Station</h1>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'view_fir' %}">View FIR</a></li>
+                    <li><a href="{% url 'view_complain' %}">View Complaint</a></li>
+                    <li><a href="{% url 'manage_fir' %}">Manage FIRs</a></li>
+                    <li><a href="{% url 'manage_complain' %}">Manage Complaints</a></li>
+                    <li><a href="{% url 'user_details' %}">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if request.session.inspector_login %}
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Profile <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'inspector' %}">Add Profile</a></li>
+                                <li><a href="{% url 'view_inspector' %}">View Profile</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'inspector_logout' %}"><span class="glyphicon glyphicon-log-out"></span> Sign Out </a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}

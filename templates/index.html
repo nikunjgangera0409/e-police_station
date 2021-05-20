@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Missing Persons Details</div>
+                    <div class=" panel-body "> <a href="Missing_PersonsListView"> <img src="{% static 'images/d.jpg' %}" class="img-responsive" alt="Image Not Found"></a></div>
+                </div>
+            </div>
+            <div class="col-sm-4 ">
+                <div class="panel panel-primary ">
+                    <div class="panel-heading ">Rules & Regulations</div>
+                    <div class="panel-body "> <a href="{% url 'Rules_RegulationsListView' %}"><img src="{% static 'images/r&r.jpg' %}" class="img-responsive" alt="Image Not Found"></a></div>
+                </div>
+            </div>
+            <div class="col-sm-4 ">
+                <div class="panel panel-primary ">
+                    <div class="panel-heading ">Emergency Information</div>
+                    <div class="panel-body "> <a href="{% url 'Show_emergency' %}"><img src="{% static 'images/ei.jpg' %}" class="img-responsive" alt="Image Not Found"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

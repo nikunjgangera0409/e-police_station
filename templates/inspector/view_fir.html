@@ -1,0 +1,46 @@
+{% extends 'inspector/inspector_index.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <table class="table table-bordered table-hover">
+        <h1>FIR Details</h1>
+        <hr>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Police Station</th>
+                <th>Crime Category</th>
+                <th>Crime Sub Category</th>
+                <th>Incident Place</th>
+                <th>Date and Time</th>
+                <th>Crime Description</th>
+                <th>Fir Againts</th>
+                <th>Proof</th>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>FIR Date and Time</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for object in view_fir %}
+            <tr>
+                <td>{{object.username.first_name}} {{object.username.last_name}}</td>
+                <td>{{object.police_station}}</td>
+                <td>{{object.crime_category}}</td>
+                <td>{{object.crime_sub_category}}</td>
+                <td>{{object.incident_place}}</td>
+                <td>{{object.Date_and_Time}}</td>
+                <td>{{object.Crime_Description}}</td>
+                <td>{{object.Fir_againts}}</td>
+                <td><a href="{{object.proof.url}}">{{object.proof}}</a></td>
+                <td>{{object.status}}</td>
+                <td>{{object.Reason}}</td>
+                <td>{{object.FIR_Date_and_Time}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

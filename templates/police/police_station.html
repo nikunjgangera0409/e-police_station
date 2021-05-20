@@ -1,0 +1,20 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %} 
+
+    <div class="container">
+        <center>
+            <form action="{% url 'police_station' %}" method="POST" id="policestationform" taluka-url="{% url 'load_taluka' %}" village-url="{% url 'load_village' %}">
+                {% csrf_token %}
+                <h1 class="btn btn-lg btn-primary">Add Police Station</h1>
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="submit" name="Add_PS" value="Add Police Station">
+            </form>
+        </center>
+    </div>
+    
+{% include 'police/police_ajax.html' %}
+   
+{% endblock %}

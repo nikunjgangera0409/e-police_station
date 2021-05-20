@@ -1,0 +1,36 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_city").change(function () {
+        const url = $("#policestationform").attr("taluka-url"); 
+        const city_id = $(this).val();  
+
+        $.ajax({                       
+            url: url,                    
+            data: {
+                'city_id': city_id      
+            },
+            success: function (data) {   
+                $("#id_taluka").html(data);  
+                
+            }
+        });
+
+    });
+
+    $("#id_taluka").change(function () {
+        const url = $("#policestationform").attr("village-url"); 
+        const taluka_id = $(this).val();  
+
+        $.ajax({                       
+            url: url,                    
+            data: {
+                'taluka_id': taluka_id      
+            },
+            success: function (data) {   
+                $("#id_village").html(data);  
+                
+            }
+        });
+
+    });
+</script>

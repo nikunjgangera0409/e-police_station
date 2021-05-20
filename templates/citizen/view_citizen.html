@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <table class="table table-condensed table-hover text-center">
+            <h1 class="btn btn-lg btn-primary">My Profile</h1>
+            <hr>
+            <tbody>
+                <tr>
+                    <th>Username</th>
+                    <td>{{user_details.user}}</td>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <td>{{user_details.user.first_name}}</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>{{user_details.user.last_name}}</td>
+                </tr>
+                <tr>
+                    <th>Email Address</th>
+                    <td>{{user_details.user.email}}</td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>{{user_details.user.password}} <a href="{% url 'citizen_password' %}" class="btn btn-primary">Change Password</a></td>
+                </tr>
+                <tr>
+                    <th>Profile Pic</th>
+                    <td><a href="{{user_details.profile_pic.url}}">{{user_details.profile_pic.url}}</a></td>
+                </tr>
+                <tr>
+                    <th>Mobile No</th>
+                    <td>{{user_details.mobile_no}}</td>
+                </tr>
+                <tr>
+                    <th>Phone No</th>
+                    <td>{{user_details.phone_no}}</td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td>{{user_details.dob}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{user_details.gender}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{user_details.address}}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{user_details.City}}</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>{{user_details.state}}</td>
+                </tr>
+                <tr>
+                    <th>Pincode</th>
+                    <td>{{user_details.pincode}}</td>
+                </tr>
+                <tr>
+                    <th>Update Your Profile</th>
+                    <td><a href="{% url 'update_citizen' user_details.id %}" class="btn btn-info"> UPDATE </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

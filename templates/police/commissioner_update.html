@@ -1,0 +1,20 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %}
+
+
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Update Profile</h1>
+            <hr>
+            <form  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <Table>
+                    {{form.as_table}}
+                </Table><br>
+                <button type="submit" class="btn btn-success"> SAVE </button><br><br>
+            </form>
+        </center>
+    </div>
+
+{% endblock %}

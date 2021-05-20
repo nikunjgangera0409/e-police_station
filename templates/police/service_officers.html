@@ -1,0 +1,19 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %} 
+
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">ADD Service Officers</h1>
+            <hr>
+            <form action="{% url 'service_officers' %}" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        </center>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Commissioner Login</h1>
+            <hr>
+            <form action="{% url 'commissioner_login' %}" method="POST">
+                {% csrf_token %}
+                <Table>
+                    <tr>
+                        <td><label for="cuser">Commissioner ID: </label></td>
+                        <td><input type="text" name="username" id="inspectorid" value=""></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cpwd">Password : </label></td>
+                        <td><input type="password" name="userpwd" id="password" value=""></td>
+                    </tr>
+                </Table>
+                <br>
+                <button type="submit" class="btn btn-success">Sign In</button>
+                <hr width="50%">
+                <a href="{% url 'commissioner_forgot' %}"><button type="button" class="btn btn-danger">Forgot Password</button></a>
+            </form>
+        </center>
+    </div>
+
+{% endblock %}

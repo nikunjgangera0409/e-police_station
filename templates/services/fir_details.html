@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+    <div class="container">
+        
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Police Station</th>
+                    <th>Crime Category</th>
+                    <th>Crime Sub Category</th>
+                    <th>Incident Place</th>
+                    <th>Date and Time</th>
+                    <th>Crime Description</th>
+                    <th>Fir Againts</th>
+                    <th>Proof</th>
+                    <th>Status</th>
+                    <th>Reason</th>
+                    <th>FIR Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for object in fir_detail %}
+                {% if request.session.username == object.username.username%}
+                <tr>
+                    <td>{{object.username.username}}</td>
+                    <td>{{object.police_station}}</td>
+                    <td>{{object.crime_category}}</td>
+                    <td>{{object.crime_sub_category}}</td>
+                    <td>{{object.incident_place}}</td>
+                    <td>{{object.Date_and_Time}}</td>
+                    <td>{{object.Crime_Description}}</td>
+                    <td>{{object.Fir_againts}}</td>
+                    <td>{{object.proof}}</td>
+                    <td>{{object.status}}</td>
+                    <td>{{object.Reason}}</td>
+                    <td>{{object.FIR_Date_and_Time}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

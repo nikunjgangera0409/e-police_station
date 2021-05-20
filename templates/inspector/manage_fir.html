@@ -1,0 +1,50 @@
+{% extends 'inspector/inspector_index.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    
+    <table class="table table-bordered table-hover" content="width=device-width, initial-scale=1">
+        <h1>Manage FIRs</h1>
+        <hr>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Police Station</th>
+                <th>crime_category</th>
+                <th>crime_sub_category</th>
+                <th>Incident Place</th>
+                <th>Date and Time</th>
+                <th>Crime Description</th>
+                <th>Fir Againts</th>
+                <th>Proof</th>
+                <th>FIR Date and Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in manage_fir %}
+            <tr>
+                <td>{{object.username}}</td>
+                <td>{{object.police_station}}</td>
+                <td>{{object.crime_category}}</td>
+                <td>{{object.crime_sub_category}}</td>
+                <td>{{object.incident_place}}</td>
+                <td>{{object.Date_and_Time}}</td>
+                <td>{{object.Crime_Description}}</td>
+                <td>{{object.Fir_againts}}</td>
+                <td><a href="{{object.proof.url}}">{{object.proof.name}}</a></td>
+                <td>{{object.FIR_Date_and_Time}}</td>
+                <td>
+                    <a href="{% url 'fir_status' object.id %}" class="btn btn-success">Update Status</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+
+
+{% endblock %}

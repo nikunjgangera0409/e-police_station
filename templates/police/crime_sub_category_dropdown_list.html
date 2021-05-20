@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for crime_sub_category in crime_sub_categories %}
+<option value="{{ crime_sub_category.pk }}">{{ crime_sub_category.crime_sub_category }}</option>
+{% endfor %}

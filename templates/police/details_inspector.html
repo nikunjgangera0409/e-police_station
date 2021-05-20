@@ -1,0 +1,45 @@
+{% extends 'police/police_station_index.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h1 class="btn btn-lg btn-primary">Inspector's Details</h1>
+            <hr>
+            <form  method="POST">
+                {% csrf_token %}
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Picture</th>
+                            <th>Police Station</th>
+                            <th>Mobile No</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Pincode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{inspector.user}}</td>
+                            <td> <a href="{{inspector.profile_pic.url}}">{{inspector.profile_pic}}</a></td>
+                            <td>{{inspector.police_station}}</td>
+                            <td>{{inspector.mobile_no}}</td>
+                            <td>{{inspector.Age}}</td>
+                            <td>{{inspector.gender}}</td>
+                            <td>{{inspector.address}}</td>
+                            <td>{{inspector.city}}</td>
+                            <td>{{inspector.state}}</td>
+                            <td>{{inspector.pincode}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </center>
+    </div>
+
+{% endblock %}
